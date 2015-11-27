@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         InputStream stream = getResources().openRawResource(R.raw.image);
         Bitmap bitmap = BitmapFactory .decodeStream(stream);
-        FaceDetector detector = new FaceDetector.Builder(getApplicationContext()).setTrackingEnabled(false).build();
+        FaceDetector detector = new FaceDetector.Builder(getApplicationContext()).setTrackingEnabled(false).setClassificationType(FaceDetector.ALL_CLASSIFICATIONS).build();
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
         SparseArray<Face> faces = detector.detect(frame);
         TextView faceCount = (TextView) findViewById(R.id.face_count);
